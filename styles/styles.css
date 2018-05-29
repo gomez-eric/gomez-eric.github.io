@@ -1,0 +1,136 @@
+:root {
+  --daFont: 'Montserrat', sans-serif;
+  --daFont: 'Montserrat', sans-serif;
+  --colorOne: #FFFFFF;
+  --colorTwo: #4C4C4C;
+  --colorThree: #1B1B19;
+}
+
+body {
+  color: var(--colorThree);
+  background-color: var(--colorOne);
+  font-family: var(--daFont);
+}
+
+.jumbotron {
+  margin: 0px;
+  padding: 100px;
+  border-radius: 0px;
+  color: var(--colorOne);
+  background: linear-gradient(-90deg, var(--colorThree), var(--colorTwo));
+  /*background-color: var(--colorThree);*/
+}
+
+.mainContainer {
+  padding: 5px;
+  background-color: none;
+}
+
+.projects, .contact {
+  color: var(--colorThree);
+  background-color: none;
+  margin: 0px;
+}
+
+.projects {
+  height: auto;
+}
+
+.projects_header, .contact_header {
+  border-bottom: 5px solid var(--colorThree);
+  color: var(--colorThree);
+  padding-top: 100px;
+  margin-bottom: 20px;
+
+}
+
+.projects_col, .contact_col {
+  background-color: none;
+  padding: 10px;
+}
+
+.projects_col {
+  transition: all 0.5s ease-out;
+  height: 275px;
+
+  background-position: 50% 10%;
+
+  background-repeat: no-repeat;
+  background-size: 200%;
+
+}
+
+.projects_col:hover {
+  transition: all 0.8s ease .05s;
+  height: 300px;
+  cursor: pointer;
+
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-bottom: 30%;
+
+
+  background-size: cover;
+  margin: 20px;
+
+}
+
+.contact_col {
+  background-color: none;
+  margin-top: 5px;
+  color: var(--colorThree);
+  height: 250px;
+  padding: 50px;
+}
+
+
+#scrollUP {
+  opacity: 1;
+  color: var(--colorThree);
+  background-color: var(--colorOne);
+  border-radius: 0px;
+  width: 100%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 0px; /* Place the button at the bottom of the page */
+  left: 0px;
+  z-index: 100; /* Make sure it does not overlap */
+}
+
+#scrollUP:hover {
+  opacity: 1;
+  color: var(--colorOne);
+  background-color: var(--colorThree);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a {
+  transition: all 0.35s ease .05s;
+  color: #595959; #262626
+}
+
+a:hover {
+  transition: all 0.5s ease-out;
+  color: #262626;
+}
+
+.nav-bar {
+  padding: 10px;
+  height: 60px;
+  color: var(--colorThree);
+  background-color: none;
+}
+
+.navButtons {
+  transition: all 0.35s ease .05s;
+  color: #595959;
+  font-size: auto;
+}
+
+.navButtons:hover {
+  transition: all 0.35s ease .05s;
+  color: #262626;
+}
