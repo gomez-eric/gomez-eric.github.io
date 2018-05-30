@@ -1,0 +1,12 @@
+.projects_col:hover {
+  transition: all 0.8s ease .05s;
+  cursor: pointer;
+  background-size: cover;
+  background-position: 50% 50%;
+
+}
+
+.projects_col_text {
+  font-size: 40px;
+
+}

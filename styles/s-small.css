@@ -1,0 +1,19 @@
+.jumbotron {
+  padding: 50px;
+}
+
+.projects_col {
+  transition: all 0.8s ease .05s;
+  cursor: pointer;
+  background-size: cover;
+  background-position: 50% 50%;
+
+  border-width: thin;
+  border-color: white;
+  border-style: solid;
+
+}
+
+.projects_col_text {
+  font-size: 30px;
+}

@@ -1,5 +1,6 @@
 // When the user scrolls down 20px from the top of the document, show the button
 var opacity = (document.documentElement.scrollTop/150).toFixed(1);
+var documentWidth = $( document ).width();
 
 window.onscroll = function() {
   opacity = (document.documentElement.scrollTop/150).toFixed(1);
@@ -18,10 +19,67 @@ function topFunction() {
 }
 
 $( document ).ready(function() {
-  $('[data-toggle="popover"]').popover(); 
+
+  resizerHover();
+
+  $(window).resize(function() {
+    console.log(documentWidth)
+    documentWidth = $( document ).width();
+    if(documentWidth <= 600) {
+      $(".projects_col").find( ".projects_col_inner" ).css("opacity", "1");
+      $(".projects_col").find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      resizerHover();
+
+    } else {
+      $(".projects_col").find( ".projects_col_inner" ).css("opacity", "0");
+      $(".projects_col").find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "0");
+      resizerHover();
+
+    }
+
+
+  });
+
+
+
+
+
+  $(".projects_col").click(function() {
+    window.open($(this).attr("href"), $(this).attr("target"));
+  });
+
+
 
 
 });
+
+
+function resizerHover() {
+  if(documentWidth > 600) {
+    $( ".projects_col" ).hover(
+      function() {
+        $( this ).find( ".projects_col_inner" ).css("opacity", "1");
+        $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+
+      }, function() {
+        $( this ).find( ".projects_col_inner" ).css("opacity", "0");
+        $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "0");
+      }
+    );
+
+  } else {
+    $( ".projects_col" ).hover(
+      function() {
+        $( this ).find( ".projects_col_inner" ).css("opacity", "1");
+        $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      }, function() {
+        $( this ).find( ".projects_col_inner" ).css("opacity", "1");
+        $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      }
+    );
+  }
+
+}
 
 
 

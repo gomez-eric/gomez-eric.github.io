@@ -2,7 +2,7 @@
   --daFont: 'Montserrat', sans-serif;
   --daFont: 'Montserrat', sans-serif;
   --colorOne: #FFFFFF;
-  --colorTwo: #4C4C4C;
+  --colorTwo: #111111;
   --colorThree: #1B1B19;
 }
 
@@ -45,34 +45,33 @@ body {
 }
 
 .projects_col, .contact_col {
-  background-color: none;
-  padding: 10px;
+  transition: all 0.5s ease-out;
+  padding: 0px;
+  margin: 0px;
 }
 
 .projects_col {
   transition: all 0.5s ease-out;
-  height: 275px;
-
-  background-position: 50% 10%;
-
+  height: 300px;
+  background-position: 50% 25%;
   background-repeat: no-repeat;
-  background-size: 200%;
-
+  background-size: auto;
 }
 
-.projects_col:hover {
-  transition: all 0.8s ease .05s;
-  height: 300px;
-  cursor: pointer;
+.projects_col_inner {
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  background: linear-gradient(90deg, var(--colorThree), var(--colorTwo));
+  height: inherit;
+  width: inherit;
+}
 
-  padding-left: 25%;
-  padding-right: 25%;
-  padding-bottom: 30%;
-
-
-  background-size: cover;
-  margin: 20px;
-
+.projects_col_text {
+  opacity: 0;
+  color: var(--colorOne);
+  text-align: center;
+  padding-top: 10%;
+  font-size: 40px;
 }
 
 .contact_col {
