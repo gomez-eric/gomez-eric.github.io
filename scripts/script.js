@@ -1,7 +1,7 @@
 // When the user scrolls down 20px from the top of the document, show the button
-var opacity = (document.documentElement.scrollTop/150).toFixed(1);
-var documentWidth = $( document ).width();
-
+let opacity = (document.documentElement.scrollTop/150).toFixed(1);
+let documentWidth = $( document ).width();
+var num_projects = Object.keys(projects_obj).length;
 
 window.onscroll = function() {
   opacity = (document.documentElement.scrollTop/150).toFixed(1);
@@ -11,7 +11,6 @@ window.onscroll = function() {
   } else if (opacity == 0) {
     document.getElementById("scrollUP").style.display = "none";
   }
-
 }
 
 function topFunction() {
@@ -20,94 +19,116 @@ function topFunction() {
 }
 
 $( document ).ready(function() {
-
-  mobile_adjuster();
-  window_sizer();
+  getProjects(); // RELEASE PROJECTS TO PAGE
+  mobile_adjuster(); // ADJUST TO MOBILE
+  window_sizer(); // RESIZER
 
   $(window).resize(function() {
     documentWidth = $( document ).width();
+    window_sizer(); // RESIZER
     mobile_adjuster();
   });
 
-  $(".projects_col").click(function() {
-    window.open($(this).attr("href"), $(this).attr("target"));
+  $(".project").on("click mouseup mousedown",function(type) {
+    if(type.which != 3)
+      window.open($(this).attr("href"), $(this).attr("target"));
+    if(type.button == 1)
+      return false;
   });
 
+
+
 });
+
+function getProjects(){
+  for (var key in projects_obj) {
+    var obj = projects_obj[key];
+    var project = "<div id=\"" + key + "\" class=\"project\" target=\"_blank\" href=\"" + obj["href"] + "\"></div>";
+    var image = "<div class=\"projects_img\" style=\"background-image:url('" + obj["background"]+ "')\"></div>";
+    var overlay = "<div class=\"project_overlay\"></div>";
+    var text_holder = "<div class=\"project_text\"></div>";
+    var title = "<p style=\"font-size: 40px\">" + obj["title"] + "</p>";
+    var text = "<p style=\"font-size: 25px; font-style: italic\">" + obj["text"] + "</p>";
+
+    $(".projects").append(project);
+    $("#"+key).append(image,overlay,text_holder);
+    $("#"+key).find(".project_text").append(title,text);
+  }
+}
+
+
+
 
 
 function mobile_adjuster() {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $( '.projects_col' ).find( ".projects_col_inner" ).css("opacity", "1");
-    $( '.projects_col' ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+    $('.project').find( ".project_overlay" ).css("opacity", "1");
+    $('.project').find( ".project_text" ).css("opacity", "1");
+    $('.project').find( ".projects_img" ).css("filter", "blur(10px)");
     hover_mobile();
   } else {
-    $( '.projects_col' ).find( ".projects_col_inner" ).css("opacity", "0");
-    $( '.projects_col' ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "0");
+    $('.project').find( ".project_overlay" ).css("opacity", "0");
+    $('.project').find( ".project_text" ).css("opacity", "0");
+    $('.project').find( ".projects_img" ).css("filter", "none");
     window_sizer();
   }
 
 }
 
 function window_sizer() {
+
   if(documentWidth <= 973) {
-    $( '.projects_col' ).find( ".projects_col_inner" ).css("opacity", "1");
-    $( '.projects_col' ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+    $(':root').css('--sizer', documentWidth +"px");
+    $('.project').find( ".project_overlay" ).css("opacity", "1");
+    $('.project').find( ".project_text" ).css("opacity", "1");
+    $('.project').find( ".projects_img" ).css("filter", "blur(10px)");
     hover_mobile();
   } else {
-    $( '.projects_col' ).find( ".projects_col_inner" ).css("opacity", "0");
-    $( '.projects_col' ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "0");
+    $('.project').find( ".project_overlay" ).css("opacity", "0");
+    $('.project').find( ".project_text" ).css("opacity", "0");
+    $('.project').find( ".projects_img" ).css("filter", "none");
     hover_windows();
+    $(':root').css('--sizer', "500px");
   }
+
+  if(documentWidth <= 800) {
+    $(':root').css('--tools', "none");
+  } else {
+    $(':root').css('--tools', "display");
+  }
+
 }
 
 function hover_mobile() {
-  $( '.projects_col' )
+  $( '.project' )
     .mouseenter(function() {
-      $( this ).find( ".projects_col_inner" ).css("opacity", "1");
-      $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      $(this).find( ".project_overlay" ).css("opacity", "1");
+      $(this).find( ".project_text" ).css("opacity", "1");
+      $(this).find( ".projects_img" ).css("filter", "blur(10px)");
     })
     .mouseleave(function() {
-      $( this ).find( ".projects_col_inner" ).css("opacity", "1");
-      $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      $(this).find( ".project_overlay" ).css("opacity", "1");
+      $(this).find( ".project_text" ).css("opacity", "1");
+      $(this).find( ".projects_img" ).css("filter", "blur(10px)");
     });
 }
 
 function hover_windows() {
-  $( '.projects_col' )
+  $( '.project' )
     .mouseenter(function() {
-      $( this ).find( ".projects_col_inner" ).css("opacity", "1");
-      $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "1");
+      $(this).find( ".project_overlay" ).css("opacity", "1");
+      $(this).find( ".project_text" ).css("opacity", "1");
+      $(this).find( ".projects_img" ).css("filter", "blur(10px)");
+      $(this).css("height", "500px");
+      $(this)[0].scrollIntoView({
+        behavior: "smooth", // or "auto" or "instant"
+        block: "nearest" // or "end"
+      });
     })
     .mouseleave(function() {
-      $( this ).find( ".projects_col_inner" ).css("opacity", "0");
-      $( this ).find( ".projects_col_inner" ).find( ".projects_col_text" ).css("opacity", "0");
+      $(this).find( ".project_overlay" ).css("opacity", "0");
+      $(this).find( ".project_text" ).css("opacity", "0");
+      $(this).find( ".projects_img" ).css("filter", "none");
+      $(this).css("height", "350px");
     });
 }
-
-
-
-/*
-//$(".thisBox").hide();
-//$(':root').css({'--daColor': "FUNCTIONORCOLOR"})
-//
-console.log("HELLO");
-
-$("body").addClass("animated fadeIn").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-      $(this).removeClass("animated fadeIn");
-    });
-
-//$(document).on("click", ".daMode", function() {
-$("#THEID").on("click", function(){
-
-  // This test is to retrieve data from the API
-  $.getJSON("http://www.thelink.com", function(json) {
-    // Get string into a variable
-    var string = (JSON.stringify(json));
-    // Convert string into object
-    var obj = JSON.parse(string);
-
-  });
-});
-
-*/
