@@ -33,9 +33,30 @@ body {
 }
 
 .about {
+<<<<<<< HEAD
   color: var(--colorOne);
   padding-left: 25%;
   padding-right: 25%;
+=======
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+
+.contact{
+  padding-left: 50px;
+}
+
+.tools {
+  padding-left: 50px;
+  transition: all 0.25s ease-in;
+  display: var(--tools);
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+  grid-gap: 0px;
+  justify-content: center;
+  font-size: 75px;
+>>>>>>> 1bb0432a11cc6c072614a83729b82f30867e5e81
 }
 
 .projects {
