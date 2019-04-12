@@ -11,13 +11,15 @@ body {
   color: var(--colorThree);
   background-color: var(--colorThree);
   font-family: var(--daFont);
-  margin: 0px;
+  margin: 0;
+  height: 100%;
 }
 
 .jumbotron {
-  padding: 50px;
+  margin: 0%;
+  padding: 20px;
   border-radius: 0px;
-  font-size: 100px;
+  font-size: 50px;
   color: var(--colorThree);
   background: var(--colorOne);
   text-align: center;
@@ -34,13 +36,17 @@ body {
 
 .about {
   color: var(--colorOne);
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .projects {
   display: grid;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, var(--sizer));
   overflow: hidden;
@@ -50,6 +56,7 @@ body {
 .project {
   cursor: pointer;
   position: relative;
+  -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
   height: 350px;
   width: var(--sizer);
@@ -59,10 +66,12 @@ body {
 
 .project_overlay {
   pointer-events: none;
+  -webkit-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
   position: absolute;
   top: 50%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   height: 100%;
   width: 100%;
@@ -76,6 +85,7 @@ body {
   position: absolute;
   top: 45%;
   left: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   opacity: 0;
   color: var(--colorOne);
@@ -87,11 +97,9 @@ body {
   height: inherit;
   position: relative;
   opacity: 1;
+  -webkit-transition: 0.25s;
   transition: 0.25s;
   -webkit-transform: scale(1.75);
-  -moz-transform: scale(1.75);
-  -ms-transform: scale(1.75);
-  -o-transform: scale(1.75);
   transform: scale(1.75);
   background-size: cover;
   background-position: center;
@@ -99,7 +107,7 @@ body {
 }
 
 #scroll_to_top {
-  opacity: 1;
+  opacity: 0;
   color: var(--colorOne);
   width: 100px;
   display: block;
@@ -111,12 +119,14 @@ body {
 }
 
 #scroll_to_top i:hover {
+  -webkit-transition: all 0.35s ease .05s;
   transition: all 0.35s ease .05s;
   cursor: pointer;
-  opacity: 0.50;
+  color: rgb(150, 150, 150);
 }
 
 a {
+  -webkit-transition: all 0.35s ease .05s;
   transition: all 0.35s ease .05s;
   color: #b1b1b1;
 }
@@ -128,15 +138,64 @@ a:link {
 a:hover {
   transition: all 0.5s ease-out;
   color: var(--colorOne);
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
 }
 
-.main_container_404 {
-  padding: 15%;
+.body404 {
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(red), to(transparent)), -webkit-gradient(linear, right bottom, left top, from(lime), to(transparent)), -webkit-gradient(linear, left bottom, right top, from(blue), to(transparent));
+  background: linear-gradient(red, transparent), linear-gradient(to top left, lime, transparent), linear-gradient(to top right, blue, transparent);
+  background-blend-mode: screen;
+}
+
+.home_404 {
+  position: fixed;
+  padding: 20px;
+  top: 5px;
+  left: 5px;
+  color: white;
+}
+
+.home_404:hover {
+  color: rgb(27, 27, 27);
+}
+
+._404 {
+  background-color: rgba(0, 0, 0, 1);
+  width: 100%;
+  height: 1500px;
+  position: relative;
   color: white;
   text-align: center;
-  overflow: hidden;
+  z-index: -5;
 }
 
-.main_container_404 a {
-  color: white;
+.four {
+  display: inline-block;
+  cursor: default;
+  width: 25px;
+  height: 25px;
+
+  font-size: 85px;
+
+  background-color: none;
+  position: fixed;
+  transition: ease 1.5s;
+  -webkit-transition: ease 1.5s;
+  -moz-transition: ease 1.5s;
+  -ms-transition: ease 1.5s;
+  -o-transition: ease 1.5s;
+  transform: scale(0.01);
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }

@@ -7,15 +7,28 @@ let topFunction = () => {
   }, "fast");
 }
 
+$(document).scroll(function () {
+  let top_scroll = window.pageYOffset || document.documentElement.scrollTop;
+  let opacity = top_scroll / 350;
+  if (opacity > .10)
+    $("#scroll_to_top").css("display", "block");
+  else if (opacity >= .10)
+    $("#scroll_to_top").css("display", "none");
+  if (opacity < 1.10)
+    $("#scroll_to_top").css("opacity", opacity);
+});
+
 $(document).ready(() => {
   getProjects();
   mobile_adjuster();
   window_sizer();
+
   $(window).resize(() => {
     documentWidth = $(document).width();
     window_sizer();
     mobile_adjuster();
   });
+
 });
 
 let getProjects = () => {
@@ -66,7 +79,6 @@ let window_sizer = () => {
   } else {
     $(':root').css('--tools', "block");
   }
-
 }
 
 let hover_mobile = () => {
