@@ -1,11 +1,28 @@
-.projects_col:hover {
+.project:hover {
   transition: all 0.8s ease .05s;
   cursor: pointer;
-  background-size: cover;
-  background-position: 50% 50%;
-
+  /*margin: 0px 0px 0px 5px;*/
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.342), 0 12px 40px 0 rgba(0, 0, 0, 0.466);
+  z-index: 10;
 }
 
-.projects_col_text {
+.project:hover .project_overlay, .project:hover .project_text {
+  opacity: 0.90;
+}
+
+.project:hover .projects_img {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.project_text {
   font-size: 40px;
+}
+
+.nav {
+  /*grid-template-columns: repeat(5, 1fr);*/
+}
+
+.navbtn{
+  display: none;
 }

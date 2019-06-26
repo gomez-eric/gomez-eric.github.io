@@ -5,7 +5,6 @@
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="eg.png" />
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>gomez-eric</title>
   <meta name="description" content="">
@@ -19,23 +18,161 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/s-small.css" media="(max-width:971px)">
   <link rel="stylesheet" href="styles/s-large.css" media="(min-width:970px)">
+  
 </head>
 
+
 <body>
-  <div class="jumbotron">gomez eric</div>
-  <div class="main_container">
-    <div class="_header">.about_me</div>
-    <div class="about">
-      <div style="font-size: 14px">
-        <!-- ABOUT ME HERE -->
-      </div>
-      <div style="font-size: 16px">ERIC GOMEZ</div>
-      <a style="font-style: italic; font-size: 14px" href="mailto:gomez123098@gmail.com">gomez123098@gmail.com</a>
+
+  <nav class="nav">
+    <div class="nav-bg"></div>
+    <div class="navbtn-container">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
     </div>
-    <div class="_header">.projects</div>
-    <div class="projects"></div>
+    <div onclick="navswitch()" class="navbtn" title="NAVIGATION SWITCH"><i class="fas fa-ellipsis-h"></i></div>
+  </nav>
+
+  <div class="jumbotron section" id="home">
+    <div style="opacity: 0.45;" class="overlay"></div>
+    <div class="img" style="background-image: url(images/blur.png);"></div>
+    <!--<video autoplay loop muted playsinline src="images/banner.mp4"></video>-->
+    <div class="container">
+      <h1>ERIC GOMEZ</h1>
+      <p>Full-Stack Web Developer and UI/UX Enthusiast</p>
+    </div>
   </div>
-  <div onclick="topFunction()" id="scroll_to_top" class="btn" title="Go to top"><i class="fas fa-caret-up"></i></div>
+
+  <div class="wrapper">
+
+    <div class="main-container">
+
+      <div class="section section-container" id="about">
+        <div class="text">
+          <h1>ABOUT ME</h1>
+          <div class="split" style="text-transform:uppercase;"></div>
+            <p>I have an obsessive attention to detail</p>
+            <p>Love making things happen</p>
+            <p>Mission-driven work ethic</p>
+            <p>Learning new things everyday</p>
+            <p>Creating beauitiful, responsive and accessible layouts from scratch</p>
+          <div class="split"></div>
+        </div>
+      </div>
+
+      <div class="section section-container" id="skills">
+        <div class="parallex"></div>
+        <div class="overlay"></div>
+        <div class="text" style="color: white">
+          <h1>SKILLS</h1>
+          <div class="split"></div>
+          <h3>LANGUAGES, LIBRARIES & FRAMEWORKS</h3>
+          <p>JS ES6, Python, Java, C#, C++, jQuery, Express.js, Bootstrap, HTML5 & CSS</p>
+          <h3>TOOLS</h3>
+          <p>Visual Studio Code, Adobe XD, Node.js, Inkscape, NPM, Visual Studio 2017, GidtHub, Git, MSOffice, AMPPS, Terminal</p>
+          <div class="split"></div>
+        </div>
+      </div>
+
+      <div class="section section-container" id="projects">
+
+        <div class="text">
+          <h1>PROJECTS</h1>
+          <div class="split"></div>
+          Few projects developed using Bootstrap, HTML5, CSS3, jQuery, ECMAScript6. Project ideas gathered from <a
+            target="_blank" style="font-style: italic; font-size: 14px; color:black"
+            href="https://www.freecodecamp.org/gomez-eric">freeCodeCamp</a>.
+          <div class="split"></div>
+        </div>
+
+        <div class="projects">
+
+          <a id="WEATHER" class="project" target="_blank" href="https://gomez-eric.github.io/LocalWeather/"
+            style="background-color: rgb(0, 0, 0);">
+            <div class="projects_img" style="background-image: url(images/screen_weather.png);"></div>
+            <div class="project_overlay"></div>
+            <div class="project_text">
+              <p style="font-size: 28px">WEATHER</p>
+              <p style="font-size: 13px; font-style: italic">CHECK YOUR LOCAL WEATHER</p>
+            </div>
+          </a>
+
+          <a id="WIKISEARCH" class="project" target="_blank" href="https://gomez-eric.github.io/WikiSearch/"
+            style="background-color: rgb(0, 0, 0);">
+            <div class="projects_img" style="background-image: url(images/screen_wiki.png);">
+            </div>
+            <div class="project_overlay"></div>
+            <div class="project_text">
+              <p style="font-size: 28px">WIKISEARCH</p>
+              <p style="font-size: 13px; font-style: italic">SEARCH WIKIPEDIA</p>
+            </div>
+          </a>
+
+          <a id="QUOTEGENERATOR" class="project" target="_blank" href="https://gomez-eric.github.io/RandomQuote/"
+            style="background-color: rgb(255, 255, 255);">
+            <div class="projects_img" style="background-image: url(images/screen_quote.png);">
+            </div>
+            <div class="project_overlay"></div>
+            <div class="project_text">
+              <p style="font-size: 28px">QUOTE GENERATOR</p>
+              <p style="font-size: 13px; font-style: italic">GENERATES A RANDOM QUOTE</p>
+            </div>
+          </a>
+
+          <a id="CALCULATOR" class="project" target="_blank" href="https://gomez-eric.github.io/Calculator/"
+            style="background-color: rgb(0, 0, 0);">
+            <div class="projects_img" style="background-image: url(images/screen_calc.png);">
+            </div>
+            <div class="project_overlay"></div>
+            <div class="project_text">
+              <p style="font-size: 28px">CALCULATOR</p>
+              <p style="font-size: 13px; font-style: italic">SIMPLE JS CALCULATOR</p>
+            </div>
+          </a>
+
+          <a id="TWITCHBOY" class="project" target="_blank" href="https://gomez-eric.github.io/TwitchBoy/"
+            style="background-color: rgb(96, 55, 159);">
+            <div class="projects_img" style="background-image: url(images/screen_twitch.png);"></div>
+            <div class="project_overlay"></div>
+            <div class="project_text">
+              <p style="font-size: 28px">TWITCHBOY</p>
+              <p style="font-size: 13px; font-style: italic">CHECK IF TWITCH STREAMERS ARE ONLINE</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="section section-container" id="contact">
+        <div class="footer"></div>
+        <div class="parallex"></div>
+        <div class="overlay"></div>
+        <div class="footer-text" style="text-align: center">
+          <h1 >LETS WORK TOGETHER</h1>
+          <div class="split"></div>
+          <div style="padding-bottom: 20px;"> SEND ME AN EMAIL</div>
+          <div style="font-size: 16px">
+            <a style="font-style: italic; font-size: 14px" href="mailto:gomez123098@gmail.com">
+              <i class="fas fa-envelope"></i> gomez123098@gmail.com
+            </a>
+          </div>
+          <div class="split"></div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <div onclick="topFunction()" id="scroll_to_top" class="btn" title="SCROLL TO TOP"><i class="fas fa-caret-up"></i>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="assets/projects.js"></script>
   <script src="scripts/script.js"></script>

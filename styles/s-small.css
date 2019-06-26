@@ -1,18 +1,58 @@
-.jumbotron {
-  padding: 50px;
+#projects {
+  padding: 0px;
+  margin:0px;
 }
 
-.projects_col {
-  transition: all 0.8s ease .05s;
+#projects .text{
+  padding: 10px;
+  margin:10px;
+}
+
+.projects {
+  overflow: hidden;
+}
+
+.project {
   cursor: pointer;
   background-size: cover;
   background-position: 50% 50%;
-  border-width: thin;
-  border-color: white;
-  border-style: solid;
-
+  width: 100vw;
 }
 
-.projects_col_text {
+.project_text {
   font-size: 30px;
+}
+
+.project_overlay, .project_text {
+  opacity: 0.90;
+}
+
+.projects_img {
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+
+.nav {
+  width: auto;
+  right: 0px;
+}
+
+.nav-bg {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.navbtn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.nav {
+  /*grid-template-columns: auto;*/
+}
+
+.navbtn {
+  display: block;
 }
