@@ -9,8 +9,6 @@ body {
 
 .nav {
   position: fixed;
-  height: auto;
-  bottom: auto;
   top: 0px;
   width: 100%;
   background-color: rgb(​42, 9, 68);
@@ -23,7 +21,19 @@ body {
   -o-transition: all 0.35s ease .05s;
 }
 
-.nav-bg{
+.nav-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.9s ease .05s;
+  -webkit-transition: all 0.9s ease .05s;
+  -moz-transition: all 0.9s ease .05s;
+  -ms-transition: all 0.9s ease .05s;
+  -o-transition: all 0.9s ease .05s;
+}
+
+.nav-bg {
   position: absolute;
   z-index: -1;
   width: 100%;
@@ -78,8 +88,7 @@ body {
 }
 
 .navbtn-active {
-  top: auto;
-  bottom: 100% !important;
+  height: 0;
 }
 
 .nav .navbtn-container a {

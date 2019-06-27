@@ -35,6 +35,10 @@ $(document).ready(function () {
 
 var nav_active_checker = function ()  {
   var documentWidth = $(window).width();
+  if (documentWidth < 970) {
+    $(".nav").addClass("navbtn-active");
+  }
+
   if (documentWidth > 970) {
     $(".nav").removeClass("navbtn-active");
   } 
