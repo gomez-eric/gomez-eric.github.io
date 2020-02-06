@@ -1,6 +1,8 @@
 var navigationLinks = $('.navbtn-container > a');
 var sections = $(".section");
 
+
+
 var topFunction = function () {
   $("html, body").animate({
     scrollTop: 0
@@ -8,14 +10,14 @@ var topFunction = function () {
 }
 
 var navswitch = function () {
-  if($(".nav").hasClass("navbtn-active")){
+  if ($(".nav").hasClass("navbtn-active")) {
     $(".nav").removeClass("navbtn-active");
   } else {
     $(".nav").addClass("navbtn-active");
   }
 }
 
-$(window).resize(function() {
+$(window).resize(function () {
   nav_active_checker();
   opacity_scroll();
   highlightNavigation(sections, navigationLinks);
@@ -31,9 +33,10 @@ $(document).ready(function () {
   nav_active_checker();
   opacity_scroll();
   highlightNavigation(sections, navigationLinks);
+  fun(".jumbotron .container p");
 });
 
-var nav_active_checker = function ()  {
+var nav_active_checker = function () {
   var documentWidth = $(window).width();
   if (documentWidth < 970) {
     $(".nav").addClass("navbtn-active");
@@ -41,7 +44,7 @@ var nav_active_checker = function ()  {
 
   if (documentWidth > 970) {
     $(".nav").removeClass("navbtn-active");
-  } 
+  }
 }
 
 var opacity_scroll = function () {
@@ -52,7 +55,7 @@ var opacity_scroll = function () {
     $("#scroll_to_top").css("opacity", opacity);
     $(".nav-bg").css("visibility", "visible");
     $(".nav-bg").css("opacity", opacity);
-  } else if (opacity <= .10){
+  } else if (opacity <= .10) {
     $(".nav-bg").css("visibility", "hidden");
     $("#scroll_to_top").css("display", "none");
   }
@@ -61,15 +64,51 @@ var opacity_scroll = function () {
 var highlightNavigation = function (sections, navigationLinks) {
   var scrollPosition = $(window).scrollTop();
   //CHANGES NAV LINK ACCORDING TO SCREEN POSITION (REMOVES PX OFFEST TO CORRECT POSITION)
-  sections.each(function(index, object) {
+  sections.each(function (index, object) {
     if ($(object).offset().top - 200 <= scrollPosition) {
       $(navigationLinks).removeClass("active");
       $(navigationLinks[index]).addClass("active");
-    } 
+    }
   });
   //GETS LAST SECTION WHEN HITS BOTTOM OF SCREEN
-  if($(window).scrollTop() + $(window).height() == $(document).height()){
+  if ($(window).scrollTop() + $(window).height() == $(document).height()) {
     $(navigationLinks).removeClass("active");
-    $(navigationLinks[navigationLinks.length-1]).addClass("active");
+    $(navigationLinks[navigationLinks.length - 1]).addClass("active");
   }
+}
+
+var fun = function (element) {
+
+  if (!element) {
+    return;
+  }
+
+  var index = 0;
+  var timeout;
+  var text = $(element).text().split("");
+
+  if (text == "") {
+    return;
+  }
+
+  $(element).text("");
+
+  function scripting() {
+    var current = $(element).text() + text[index];
+    $(element).text(current);
+    index++;
+    timeout = setTimeout(scripting, 75);
+    if (index == text.length) {
+      index = 0;
+      clearTimeout(timeout);
+      setTimeout(function (x) {
+        $(element).text("");
+        //START HERE
+        timeout = setTimeout(scripting, 1000);
+      }, 5000)
+    }
+  }
+
+  // START HERE
+  scripting();
 }

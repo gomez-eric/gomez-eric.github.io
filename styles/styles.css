@@ -4,11 +4,17 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
   margin: 0;
 }
 
 .nav {
   position: fixed;
+  height: auto;
   top: 0px;
   width: 100%;
   background-color: rgb(​42, 9, 68);
@@ -38,8 +44,7 @@ body {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background-color: rgb(​42, 9, 68);
-  background-image: linear-gradient(to bottom left, #1c0031e8, #11041bee, #140024e1);
+  background-color: rgb(0, 0, 0);
   opacity: 0;
   transition: all 0.35s ease .05s;
   -webkit-transition: all 0.35s ease .05s;
@@ -75,9 +80,8 @@ body {
   bottom: auto;
   right: 25px;
   font-size: 25px;
-  color: white;
-  background-color: rgb(​42, 9, 68);
-  background-image: linear-gradient(to bottom left, #1c0031c5, #11041bde, #140024d7);
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   padding: 10px;
   width: 80px;
   border-radius: 0px 0px 20px 20px;
@@ -99,11 +103,10 @@ body {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  border-bottom: #2a094400 solid 5px;
+  border-bottom: #00000000 solid 5px;
   text-decoration: none !important;
 }
 
-/* Selects nav at hover and when active with after */
 .nav .navbtn-container a:hover::after,
 .active:after {
   content: "";
@@ -130,6 +133,8 @@ body {
   -ms-transition: all 0.35s ease .05s;
   -o-transition: all 0.35s ease .05s;
   opacity: .75;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 
 .jumbotron {
@@ -190,17 +195,44 @@ body {
   -o-transform: translateX(-50%) translateY(-50%);
 }
 
+.jumbotron .container .scripting::after {
+  position: relative;
+  content: "|";
+  animation-name: blinking;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  font-size: xx-large;
+  transition: ease-in-out 0.5s;
+  opacity: 1;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .jumbotron .overlay {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgb(​62,40,80);
-  background-image: linear-gradient(to bottom left, #8036b981, #39234b60, #45245fa1);
-  opacity: 0.90;
+  background-color: rgb(0, 0, 0);
+  opacity: 0 !important;
   z-index: 2;
 }
+
+.jumbotron .fun {
+  position: absolute;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 2; 
+}
+
 
 .wrapper {
   position: absolute;
@@ -232,24 +264,13 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0.90;
-  background-color: rgb(​62,40,80);
-  background-image: linear-gradient(to bottom left, #7a2db4, #26143581);
+  background-color: rgb(0, 0, 0);
 }
 
 .footer-text {
   position: relative;
   text-align: left;
   color: white;
-}
-
-
-.parallex {
-  position: absolute;
-  background-color: rgb(0, 0, 0);
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-  transform: scale(1.5);
 }
 
 .footer {
@@ -263,15 +284,14 @@ body {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: rgb(​62,40,80);
-  background-image: linear-gradient(to bottom left, #38225a, #380d46);
+  background-color: rgb(0, 0, 0);
 }
 
 .split {
   position: relative;
   margin: 20px 0px 20px 0px;
-  background-color: rgb(​62,40,80);
-  background-image: linear-gradient(to right, #904097, #a73d57, #7d4da1c4, #41235ada);
+  background-color: rgb(0, 0, 0);
+  /*background-image: linear-gradient(to right, #ffffff, #904097, #a73d57, #7d4da1c4, #41235ada, #ffffff);*/
   height: 1px;
 }
 
@@ -289,24 +309,25 @@ body {
 }
 
 .project {
-  margin: 0px;
   position: relative;
-  height: 250px;
-  width: 500px;
+  margin: 5px;
+  border: white 10px solid;
+  height: 300px;
+  width: 450px;
   overflow: hidden;
 }
 
 .project_overlay {
   pointer-events: none;
   position: absolute;
+  transition: ease-in-out 0.25s;
   top: 50%;
   left: 50%;
   height: 150%;
   width: 150%;
   opacity: 0;
   color: white;
-  background-color: rgb(​62,40,80);
-  background-image: linear-gradient(to bottom left, #7430a893, #13071d56);
+  background-color: rgb(0, 0, 0);
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
@@ -357,9 +378,8 @@ body {
   z-index: 100;
   text-align: center;
   font-size: 25px;
-  color: white;
-  background-color: rgb(​42, 9, 68);
-  background-image: linear-gradient(to bottom left, #1c0031c5, #11041bde, #140024d7);
+  color: black;
+  background-color: rgb(255, 255, 255);
   padding: 10px;
   width: 80px;
   border-radius: 20px 20px 0px 0px;
@@ -376,8 +396,8 @@ body {
   -moz-transition: all 0.35s ease .05s;
   -ms-transition: all 0.35s ease .05s;
   -o-transition: all 0.35s ease .05s;
-  background-image: linear-gradient(to bottom left, #1c0031a2, #11041bb6, #140024a9);
-  color: #6e4470;
+  color: #ffffff;
+  background-color: rgb(0, 0, 0);
 }
 
 a {

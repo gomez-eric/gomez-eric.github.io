@@ -40,6 +40,7 @@
 .nav-bg {
   visibility: visible !important;
   opacity: 1 !important;
+  border-bottom-left-radius: 25px;
 }
 
 .navbtn-container {
@@ -47,6 +48,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.navbtn-container > a {
+  width: 250px;
+
 }
 
 .nav {
